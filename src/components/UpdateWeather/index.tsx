@@ -1,14 +1,16 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 const UpdateWeather: React.FC = () => {
 
+    const updateWeathers = async () => {}
+
     return (
     
-        <View>
+        <View style={ styles.container }>
 
-            <TouchableOpacity>
+            <TouchableOpacity style={ styles.button } onPress={ updateWeathers }>
 
-                <Text>ícone de atualizar</Text>
+                <Text style={ styles.text }>ícone de atualizar</Text>
 
             </TouchableOpacity>
 
@@ -17,5 +19,14 @@ const UpdateWeather: React.FC = () => {
     )
 
 }
+
+const styles = StyleSheet.create({
+
+
+    container: {},
+    text: {},
+    button: {}
+
+})
 
 export default UpdateWeather
