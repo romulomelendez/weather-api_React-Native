@@ -1,6 +1,8 @@
 //import { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+
+import Weather from './src/components/Weather'
 
 const App: React.FC = () => {
   
