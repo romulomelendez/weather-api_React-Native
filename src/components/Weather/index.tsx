@@ -4,7 +4,7 @@ const Weather: React.FC = () => {
 
     return (
 
-        <View>
+        <View >
 
             <Text>Weather component</Text>
 
