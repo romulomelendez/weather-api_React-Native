@@ -16,7 +16,13 @@ const Search: React.FC = () => {
                 value={ city }
             />
 
-            <TouchableOpacity style={ styles.button }><Text style={ styles.text }>GO</Text></TouchableOpacity>
+            <TouchableOpacity
+                style={ styles.button }
+                onPress={ () => console.log(city) }
+            >
+                <Text style={ styles.text }>GO</Text>
+            
+            </TouchableOpacity>
 
         </View>
 
