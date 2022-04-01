@@ -1,17 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
 const App = () => {
-
+  
   const getWeather = () => {
 
     let key = '92f3ea930ce06c45e916044d9f6bcd3e'
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=${key}`)
-      .then( response => {
-
-        console.log(JSON.stringify(response))
-
-      })
+      .then( response => response.json() )
+      .then( data => console.log(data.weather[0].id) )
       .catch( error => console.log(error) )
 
   }
