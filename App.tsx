@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 
-const App = () => {
+const App: React.FC = () => {
   
+  const [ weatherCondition, setWeatherCondition ] = useState('')
+
   const getWeather = () => {
 
     let key = '92f3ea930ce06c45e916044d9f6bcd3e'
@@ -19,7 +22,8 @@ const App = () => {
 
       <StatusBar style="auto" />
       <TouchableOpacity style={ styles.button } onPress={ getWeather }>
-      
+
+
         <Text style={ styles.text }>PRESS HERE</Text>
 
       </TouchableOpacity>
