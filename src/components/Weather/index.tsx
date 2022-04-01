@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { View, Text } from 'react-native'
 
+import WeatherCards from '../WeatherCards'
+
 const Weather: React.FC = () => {
 
     interface WeatherProps {
@@ -27,7 +29,7 @@ const Weather: React.FC = () => {
 
             {
             
-                control !== 0 ? <Text>{ temperature?.main }</Text>
+                control !== 0 ? <WeatherCards />
                 : <Text>Não foi feita uma consulta ainda { temperature }</Text>
                 
             }
