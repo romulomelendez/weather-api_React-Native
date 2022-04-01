@@ -2,7 +2,7 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
 
-import Weather from './src/components/Weather'
+import Home from './src/screens/Home'
 
 const App: React.FC = () => {
   
@@ -23,7 +23,7 @@ const App: React.FC = () => {
     <View style={styles.container}>
 
       <StatusBar style="auto" />
-      <Weather />
+      <Home />
 
     </View>
 

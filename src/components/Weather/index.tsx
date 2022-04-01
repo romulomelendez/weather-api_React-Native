@@ -1,6 +1,4 @@
-import { View } from 'react-native'
-
-import Search from '../Search'
+import { View, Text } from 'react-native'
 
 const Weather: React.FC = () => {
 
@@ -8,7 +6,7 @@ const Weather: React.FC = () => {
 
         <View>
 
-            <Search />
+            <Text>Weather component</Text>
 
         </View>
 
