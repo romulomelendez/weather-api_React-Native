@@ -10,7 +10,7 @@ const UpdateWeather: React.FC = () => {
 
             <TouchableOpacity style={ styles.button } onPress={ updateWeathers }>
 
-                <Text style={ styles.text }>ícone de atualizar</Text>
+                <Text onPress={ updateWeathers }>Refresh</Text>
 
             </TouchableOpacity>
 
@@ -22,10 +22,20 @@ const UpdateWeather: React.FC = () => {
 
 const styles = StyleSheet.create({
 
+    container: {
 
-    container: {},
-    text: {},
-    button: {}
+        alignItems: 'flex-start',
+        marginTop: 10,
+        marginBottom: 20
+
+    },
+
+    button: {
+
+        padding: 10,
+        backgroundColor: 'lightblue'
+
+    }
 
 })
 

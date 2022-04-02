@@ -34,21 +34,23 @@ const styles = StyleSheet.create({
 
     container: {
 
-        flex: 1,
+        flex: 0,
         flexDirection: 'row',
-        margin: 20
+        marginTop: 10,
+        marginBottom: 10,
+        height: 50,
+        width: '100%'
 
     },
 
     button: {
         
-        
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: -55,
         borderWidth: 0,
-        height: 50,
-        width: 50,
-        marginLeft: -50
+        height: '100%',
+        width: 50
 
     },
 
@@ -56,8 +58,8 @@ const styles = StyleSheet.create({
 
     input: {
 
-        height: 50,
         width: '100%',
+        height: '100%',
         padding: 10,
         fontSize: 25,
         borderWidth:  1,
@@ -66,6 +68,6 @@ const styles = StyleSheet.create({
     
     }
   
-  })
+})
 
 export default Search
