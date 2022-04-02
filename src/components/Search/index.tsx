@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     container: {
 
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        margin: 20
 
     },
 
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     input: {
 
         height: 50,
-        width: 600,
+        width: '100%',
         padding: 10,
         fontSize: 25,
         borderWidth:  1,
