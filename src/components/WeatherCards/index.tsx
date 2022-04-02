@@ -5,7 +5,7 @@ const WeatherCards: React.FC = () => {
 
     const [ control, setControl ] = useState(0)
     const [ weatherData, setWeatherData ]= useState<WeatherProps>()
-    
+
     interface WeatherProps {
 
         id: number,
@@ -20,7 +20,6 @@ const WeatherCards: React.FC = () => {
         humidity: number
 
     }
-
 
     useEffect(() => {
         
