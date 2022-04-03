@@ -7,6 +7,8 @@ const Search = () => {
 
     const { city, setCity, controlVariable, setControlVariable} = useContext(WeatherContext)
 
+    
+
     return (
 
         <View style={styles.container}>

@@ -8,7 +8,7 @@ const WeatherCards: React.FC = () => {
     //const [ control, setControl ] = useState(0)
     const [ weatherData, setWeatherData ] = useState<WeatherProps>()
 
-    const { city } = useContext(WeatherContext)
+    const { city, controlVariable } = useContext(WeatherContext)
 
     interface WeatherProps {
 
@@ -51,7 +51,7 @@ const WeatherCards: React.FC = () => {
             
         }
 
-    }, [])
+    }, [controlVariable])
 
     return (
 
