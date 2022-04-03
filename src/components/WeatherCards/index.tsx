@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
+import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
+
 import { WeatherContext } from '../../context/WeatherContext'
 
 const WeatherCards: React.FC = () => {
@@ -31,9 +33,8 @@ const WeatherCards: React.FC = () => {
         
         return () => {
 
-            let key = '92f3ea930ce06c45e916044d9f6bcd3e'
             //fetch(`https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=${key}`)
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+            fetch(WEATHER_API_URL + `${city}` + WEATHER_API_URL_PART2 + WEATHER_API_KEY)
                 .then( response => response.json() )
                 .then( data => setWeatherData({
 
