@@ -3,6 +3,8 @@ import { useState, createContext, ReactNode } from 'react'
 const initialValues = {
 
     city: '',
+    controlVariable: 0,
+    setControlVariable: () => {},
     setCity: () => {}
 
 }
@@ -10,7 +12,9 @@ const initialValues = {
 type WeatherContextProps = {
 
     city: string,
-    setCity: ( newState: string ) => void
+    controlVariable: number,
+    setCity: ( newState: string ) => void,
+    setControlVariable: ( newState: number ) => void,
 
 }
 
@@ -25,10 +29,11 @@ export const WeatherContext = createContext<WeatherContextProps>(initialValues)
 export const WeatherProvider = ({ children }: WeatherProps) => {
     
     const [ city, setCity ] = useState(initialValues.city)
+    const [ controlVariable, setControlVariable ] = useState(0)
 
     return (
 
-        <WeatherContext.Provider value={{ city, setCity }}>
+        <WeatherContext.Provider value={{ city, setCity, controlVariable, setControlVariable }}>
     
             { children }
 

@@ -51,7 +51,7 @@ const WeatherCards: React.FC = () => {
             
         }
 
-    }, [city])
+    }, [])
 
     return (
 

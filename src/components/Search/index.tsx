@@ -5,7 +5,7 @@ import { WeatherContext } from '../../context/WeatherContext'
 
 const Search = () => {
 
-    const { city, setCity } = useContext(WeatherContext)
+    const { city, setCity, controlVariable, setControlVariable} = useContext(WeatherContext)
 
     return (
 
@@ -20,7 +20,7 @@ const Search = () => {
 
             <TouchableOpacity
                 style={ styles.button }
-                onPress={ () => console.log(city) }
+                onPress={ () => setControlVariable( controlVariable + 1 ) }
             >
                 <Text style={ styles.text }>GO</Text>
             
