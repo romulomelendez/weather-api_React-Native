@@ -7,7 +7,14 @@ const Search = () => {
 
     const { city, setCity, controlVariable, setControlVariable} = useContext(WeatherContext)
 
-    
+    const verifySearch = () => {
+
+        if( city !== '' ) 
+            setControlVariable( controlVariable + 1 )
+        else
+            alert('Input cannot be empty!')
+
+    }
 
     return (
 
@@ -22,7 +29,7 @@ const Search = () => {
 
             <TouchableOpacity
                 style={ styles.button }
-                onPress={ () => setControlVariable( controlVariable + 1 ) }
+                onPress={ verifySearch }
             >
                 <Text style={ styles.text }>GO</Text>
             
