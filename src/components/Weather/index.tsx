@@ -1,20 +1,19 @@
-import { View } from 'react-native'
+import { useContext } from 'react'
+import { View, Text} from 'react-native'
 
-import WeatherCards from '../WeatherCards'
+//import WeatherCards from '../WeatherCards'
+
+import { WeatherContext } from '../../context/WeatherContext'
 
 const Weather: React.FC = () => {
 
-    //const {} = useContext(WeatherContext)
+    const { city, setCity } = useContext(WeatherContext)
 
     return (
 
         <View >
 
-            {
-
-                
-
-            }
+            <Text>{ city }</Text>
 
         </View>
 

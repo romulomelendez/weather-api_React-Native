@@ -4,15 +4,21 @@ import Weather from '../../components/Weather'
 import Search from '../../components/Search'
 import UpdateWeather from '../../components/UpdateWeather'
 
-const Home: React.FC = () => {
+import { WeatherProvider } from '../../context/WeatherContext'
+
+const Home = () => {
 
     return (
 
         <View style={ styles.container }>
 
-            <Search />
-            <UpdateWeather />
-            <Weather />
+            <WeatherProvider>
+
+                <Search />
+                <UpdateWeather />
+                <Weather />
+
+            </WeatherProvider>
 
         </View>
 
