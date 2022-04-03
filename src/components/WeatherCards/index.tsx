@@ -21,7 +21,7 @@ const WeatherCards: React.FC = () => {
 
     }
 
-    useEffect(() => {
+    useEffect( () => {
         
         return () => {
 

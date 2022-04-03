@@ -1,9 +1,12 @@
-import { useState } from 'react'
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native'
+//import { useContext } from 'react'
+//import { WeatherContext } from '../../context/WeatherContext.jsx'
+import { useState } from 'react'
 
-const Search: React.FC = () => {
+const Search = () => {
 
-    const [ city, setCity ] = useState('')
+    //const { city, setCity } = useContext(WeatherContext)
+    const { city, setCity } = useState('')
 
     return (
 
