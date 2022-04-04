@@ -1,13 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
-
 import { WeatherContext } from '../../context/WeatherContext'
+
+import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
 
 const WeatherCards: React.FC = () => {
 
-    //const [ control, setControl ] = useState(0)
     const [ weatherData, setWeatherData ] = useState<WeatherProps>()
 
     const { city, controlVariable } = useContext(WeatherContext)
@@ -15,6 +14,7 @@ const WeatherCards: React.FC = () => {
     interface WeatherProps {
 
         id: number,
+        name: string,
         main: string,
         description: string,
         icon: string,
@@ -39,6 +39,7 @@ const WeatherCards: React.FC = () => {
                 .then( data => setWeatherData({
 
                         id: data.weather[0].id,
+                        name: data.name,
                         main: data.weather[0].main,
                         description: data.weather[0].description,
                         icon: data.weather[0].icon,
@@ -68,6 +69,7 @@ const WeatherCards: React.FC = () => {
 
                         <View style={ styles.temperature_section }>
 
+                            <Text>{ weatherData.name }</Text>
                             <Text style={ styles.temperature}>{ weatherData.temperature }</Text>
                             <Text style={ styles.degrees }>ºC</Text>
 

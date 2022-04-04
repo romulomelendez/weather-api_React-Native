@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 
 import { WeatherContext } from '../../context/WeatherContext'
 
+import Icon from 'react-native-vector-icons/AntDesign'
+
 const Search = () => {
 
     const { city, setCity, controlVariable, setControlVariable} = useContext(WeatherContext)
@@ -31,7 +33,7 @@ const Search = () => {
                 style={ styles.button }
                 onPress={ verifySearch }
             >
-                <Text style={ styles.text }>GO</Text>
+                <Icon name="search1" size={22} />
             
             </TouchableOpacity>
 
