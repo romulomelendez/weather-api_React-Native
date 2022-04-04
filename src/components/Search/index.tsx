@@ -5,7 +5,7 @@ import { WeatherContext } from '../../context/WeatherContext'
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 
-//import { AUTO_COMPLETE_API_KEY } from '@env'
+import { AUTO_COMPLETE_API_KEY } from '@env'
 
 const Search: React.FC = () => {
 
@@ -25,7 +25,7 @@ const Search: React.FC = () => {
 
                 } }
                 query={{
-                    key: 'AIzaSyCkVZDFJ6m6zZD63gALdBnwTY4HbQhHGeU',
+                    key: AUTO_COMPLETE_API_KEY,
                     language: 'en'
                 }}
                 textInputProps={{
