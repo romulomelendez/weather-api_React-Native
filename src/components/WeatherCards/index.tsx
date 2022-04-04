@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     card_container: {
 
         flexDirection: 'row',
-        backgroundColor: 'pink',
+        backgroundColor: '#ffb6d2c5',
         padding: 20,
         marginBottom: 20,
         height: 170,
@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     temp: {
 
         flexDirection: 'row',
+        marginTop: -5
 
     },
 
