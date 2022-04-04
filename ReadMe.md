@@ -5,7 +5,7 @@
 ![Screenshot tela deitada](./assets/screenshot01.jpg)
 ![Screenshot tela em pé](./assets/screenshot02.jpg)
 
-## Used Tecnolgies
+## Used Technologies
 
 - [React-Native](https://reactnative.dev/docs/getting-started)
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
