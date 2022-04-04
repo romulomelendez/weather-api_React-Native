@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native'
 
-import Weather from '../../components/Weather'
 import Search from '../../components/Search'
+import Weather from '../../components/Weather'
 import UpdateWeather from '../../components/UpdateWeather'
 
 import { WeatherProvider } from '../../context/WeatherContext'

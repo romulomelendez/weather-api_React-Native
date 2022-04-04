@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
 
+import FavoriteWeathers from '../FavoriteWeathers'
+
 import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
 
 const WeatherCards: React.FC = () => {
@@ -10,6 +12,7 @@ const WeatherCards: React.FC = () => {
     const [ weatherData, setWeatherData ] = useState<WeatherProps>()
     const [ currentyTemperature, setCurrentyTemperature ] = useState<number>()
     const [ currentyUnit, setCurrentyUnit ] = useState<string>('°K')
+    const [ minMax, setMinMax ] = useState<minMaxProps>()
 
     const { city, controlVariable } = useContext(WeatherContext)
 
@@ -26,6 +29,13 @@ const WeatherCards: React.FC = () => {
         temp_min:number,
         pressure: number,
         humidity: number
+
+    }
+
+    interface minMaxProps {
+
+        min_temperature?: number,
+        max_temperature?: number
 
     }
 
@@ -61,13 +71,22 @@ const WeatherCards: React.FC = () => {
 
     useEffect( () => {
 
-       setCurrentyTemperature( Number((weatherData?.temperature)?.toFixed()) )
+       setCurrentyTemperature( Number((weatherData?.temperature)?.toFixed(2)) )
+       setMinMax({
+
+            min_temperature: Number((weatherData?.temp_min)?.toFixed(2)),
+            max_temperature: Number((weatherData?.temp_max)?.toFixed(2))
+            
+       })
 
     }, [weatherData?.temperature])
 
     const handleDegrees = ( degrees: string ) => { 
 
-        const baseTemperature = Number((weatherData?.temperature)?.toFixed())
+        const baseTemperature = Number((weatherData?.temperature)?.toFixed(2))
+        const tempMin = Number(weatherData?.temp_min)
+        const tempMax = Number(weatherData?.temp_max)
+
         console.log('currenty temperature: ', baseTemperature)
 
         switch( degrees ) {
@@ -75,16 +94,34 @@ const WeatherCards: React.FC = () => {
             case 'Celsius':
 
                 let newTemperature = Number((baseTemperature - 273.15).toFixed(2))
+                let newMin = Number((tempMin - 273.15).toFixed(2))
+                let newMax = Number((tempMax - 273.15).toFixed(2))
+
                 setCurrentyTemperature(newTemperature)
                 setCurrentyUnit('°C')
+                setMinMax({
+
+                    min_temperature: newMin,
+                    max_temperature: newMax
+
+                })
                 
             break
 
             case 'Farenheit':
 
                 newTemperature = Number((((baseTemperature - 273.15) * 9/5) + 32).toFixed(2))
+                newMin = Number(((( tempMin - 273.15) * 9/5) + 32).toFixed(2))
+                newMax = Number(((( tempMax - 273.15) * 9/5) + 32).toFixed(2))
+
                 setCurrentyTemperature(newTemperature)
                 setCurrentyUnit('°F')
+                setMinMax({
+
+                    min_temperature: newMin,
+                    max_temperature: newMax
+                    
+                })
 
             break
 
@@ -92,6 +129,12 @@ const WeatherCards: React.FC = () => {
 
                 setCurrentyTemperature(baseTemperature)
                 setCurrentyUnit('°K')
+                setMinMax({
+
+                    min_temperature: Number((weatherData?.temp_min)?.toFixed(2)),
+                    max_temperature: Number((weatherData?.temp_max)?.toFixed(2))
+
+                })
 
             break
 
@@ -133,8 +176,8 @@ const WeatherCards: React.FC = () => {
 
                             <View style={ styles.mix_max }>
 
-                                <Text style={ styles.min }>Min: { weatherData.temp_min }°C</Text>
-                                <Text style={ styles.max }>Max: { weatherData.temp_max }ºC</Text>
+                                <Text style={ styles.min }>Min: { minMax?.min_temperature } { currentyUnit }</Text>
+                                <Text style={ styles.max }>Max: { minMax?.max_temperature } { currentyUnit }</Text>
 
                             </View>
 
@@ -148,7 +191,7 @@ const WeatherCards: React.FC = () => {
 
                     </View>
 
-                    : <Text>Nothing to show here!</Text> 
+                    : <FavoriteWeathers />
 
             }
 
@@ -187,7 +230,8 @@ const styles = StyleSheet.create({
     temp: {
 
         flexDirection: 'row',
-        marginTop: -5
+        marginTop: -5,
+        width: 450,
 
     },
 
@@ -195,6 +239,7 @@ const styles = StyleSheet.create({
 
         flex: 1,
         height: 120,
+        width: 300,
         borderRadius: 15,
         padding: 5,
         backgroundColor: '#00000049',
