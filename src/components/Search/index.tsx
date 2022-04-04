@@ -3,7 +3,10 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-nativ
 
 import { WeatherContext } from '../../context/WeatherContext'
 
+//import { AUTO_COMPLETE_API_KEY } from '@env'
+
 import Icon from 'react-native-vector-icons/AntDesign'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 
 const Search = () => {
 
@@ -22,11 +25,25 @@ const Search = () => {
 
         <View style={styles.container}>
 
-            <TextInput
+            {/* <TextInput
                 style={ styles.input }
                 onChangeText={ newCity => setCity(newCity) }
                 placeholder="Type here to find another city"
                 value={ city }
+            /> */}
+
+            <GooglePlacesAutocomplete
+            
+                placeholder='Search'
+                onPress={(data, details = null) => {
+                    // 'details' is provided when fetchDetails = true
+                    console.log(data, details);
+                }}
+                query={{
+                    key: 'AIzaSyCkVZDFJ6m6zZD63gALdBnwTY4HbQhHGeU',
+                    language: 'en',
+                }}
+
             />
 
             <TouchableOpacity

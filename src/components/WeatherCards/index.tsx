@@ -61,7 +61,7 @@ const WeatherCards: React.FC = () => {
 
     useEffect( () => {
 
-       setCurrentyTemperature(weatherData?.temperature)
+       setCurrentyTemperature( Number((weatherData?.temperature)?.toFixed()) )
 
     }, [weatherData?.temperature])
 
