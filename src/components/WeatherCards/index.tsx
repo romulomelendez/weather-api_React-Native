@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
 
@@ -8,6 +8,8 @@ import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
 const WeatherCards: React.FC = () => {
 
     const [ weatherData, setWeatherData ] = useState<WeatherProps>()
+    const [ currentyTemperature, setCurrentyTemperature ] = useState<number>()
+    const [ currentyUnit, setCurrentyUnit ] = useState<string>('°K')
 
     const { city, controlVariable } = useContext(WeatherContext)
 
@@ -57,6 +59,46 @@ const WeatherCards: React.FC = () => {
 
     }, [controlVariable])
 
+    useEffect( () => {
+
+       setCurrentyTemperature(weatherData?.temperature)
+
+    }, [weatherData?.temperature])
+
+    const handleDegrees = ( degrees: string ) => { 
+
+        const baseTemperature = Number((weatherData?.temperature)?.toFixed())
+        console.log('currenty temperature: ', baseTemperature)
+
+        switch( degrees ) {
+
+            case 'Celsius':
+
+                let newTemperature = Number((baseTemperature - 273.15).toFixed(2))
+                setCurrentyTemperature(newTemperature)
+                setCurrentyUnit('°C')
+                
+            break
+
+            case 'Farenheit':
+
+                newTemperature = Number((((baseTemperature - 273.15) * 9/5) + 32).toFixed(2))
+                setCurrentyTemperature(newTemperature)
+                setCurrentyUnit('°F')
+
+            break
+
+            default:
+
+                setCurrentyTemperature(baseTemperature)
+                setCurrentyUnit('°K')
+
+            break
+
+        }
+
+     }
+
     return (
 
         <>
@@ -64,14 +106,26 @@ const WeatherCards: React.FC = () => {
             {
 
                 weatherData !== undefined ?
-
+                    
                     <View style={ styles.card_container }>
 
                         <View style={ styles.temperature_section }>
 
-                            <Text>{ weatherData.name }</Text>
-                            <Text style={ styles.temperature}>{ weatherData.temperature }</Text>
-                            <Text style={ styles.degrees }>ºC</Text>
+                            <View style={ styles.degrees_container }>
+
+                                <TouchableOpacity onPress={ () => handleDegrees('Kelvin') }><Text>KELVIN</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={ () => handleDegrees('Celsius') }><Text>CELSIUS</Text></TouchableOpacity>
+                                <TouchableOpacity onPress={ () => handleDegrees('Farenheit') }><Text>FARENHEIT</Text></TouchableOpacity>
+                                
+
+                            </View>
+                            <View style={ styles.temp }>
+
+                                <Text style={ styles.city_title }>{ weatherData.name }</Text>
+                                <Text style={ styles.temperature}>{ currentyTemperature }</Text>
+                                <Text style={ styles.degrees }>{ currentyUnit }</Text>
+
+                            </View>
 
                         </View>
 
@@ -112,10 +166,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink',
         padding: 20,
         marginBottom: 20,
-        height: 160,
+        height: 170,
         borderRadius: 12,
         width: '100%',
-
         shadowColor: '#171717',
         shadowOffset: { width: -2, height: 4 },
         shadowOpacity: 0.2,
@@ -125,10 +178,15 @@ const styles = StyleSheet.create({
 
     temperature_section: {
 
-        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         width:'50%',
+
+    },
+
+    temp: {
+
+        flexDirection: 'row',
 
     },
 
@@ -172,14 +230,35 @@ const styles = StyleSheet.create({
 
     },
 
-    degrees: {
-        
-        fontSize: 20,
-        marginTop: -25,
+    degrees_container: {
+
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderWidth:  0.5,
+        borderRadius: 4,
+        borderColor: '#000',
+        padding: 10,
+        width: 250,
+        height: 35
 
     },
 
-    city_title: {},
+    degrees: {
+        
+        fontSize: 20,
+        marginTop: 30,
+
+    },
+
+    city_title: {
+
+        top: 100,
+        left: 150,
+        marginTop: 5,
+        fontSize: 15,
+
+    },
 
 })
 
