@@ -114,21 +114,6 @@ const styles = StyleSheet.create({
 
     },
 
-    
-
-    information_section: {
-
-        flex: 1,
-        height: 120,
-        width: 300,
-        borderRadius: 15,
-        padding: 5,
-        backgroundColor: '#00000049',
-        justifyContent: 'center',
-        alignItems: 'center'
-
-    },
-
     mix_max: {
 
         width: 250,
