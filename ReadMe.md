@@ -1,10 +1,5 @@
 # 🏗️🚧 Under construction 🚧🏗️
 
-## Screenshots
-
-![Screenshot tela deitada](./assets/screenshot01.jpg)
-![Screenshot tela em pé](./assets/screenshot02.jpg)
-
 ## Used Technologies
 
 - [React-Native](https://reactnative.dev/docs/getting-started)
@@ -13,3 +8,9 @@
 - [React-Native Icons](https://github.com/oblador/react-native-vector-icons)
 - [Weather API](https://openweathermap.org/current)
 - [AutoComplete API](https://github.com/FaridSafi/react-native-google-places-autocomplete)
+
+## Screenshots
+
+![Screenshot tela deitada](./assets/images/screenshot01.jpg)
+![Screenshot tela em pé](./assets/images/screenshot02.jpg)
+![Screenshot tela em pé](./assets/images/screenshot02.jpg)
