@@ -68,12 +68,7 @@ const WeatherCards: React.FC = () => {
                         <Temperature />
                         <View style={ styles.information_section }>
                             <Text>Test Content</Text>
-                            {/* <View style={ styles.mix_max }>
-
-                                <Text style={ styles.min }>Min: { minMax?.min_temperature } { currentyUnit }</Text>
-                                <Text style={ styles.max }>Max: { minMax?.max_temperature } { currentyUnit }</Text>
-
-                            </View>
+                            {/* 
 
                             <View style={ styles.weather_description }>
 
@@ -113,18 +108,6 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
 
     },
-
-    mix_max: {
-
-        width: 250,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-
-    min: { margin: 20 },
-    max: { margin: 20 },
 
     weather_description: {
 
