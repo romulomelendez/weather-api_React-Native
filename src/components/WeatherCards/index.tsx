@@ -66,17 +66,6 @@ const WeatherCards: React.FC = () => {
 
                         <DegreesUnitToggle />
                         <Temperature />
-                        <View style={ styles.information_section }>
-                            <Text>Test Content</Text>
-                            {/* 
-
-                            <View style={ styles.weather_description }>
-
-                                <Text style={ styles.condition }>{  weatherData.main }</Text>
-
-                            </View> */}
-
-                        </View>
 
                     </View>
 
@@ -108,16 +97,6 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
 
     },
-
-    weather_description: {
-
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-
-    },
-
-    condition: { fontSize: 25 },
 
     city_title: {
 
