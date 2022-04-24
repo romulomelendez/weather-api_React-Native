@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
 
@@ -81,66 +81,7 @@ const WeatherCards: React.FC = () => {
 
     }, [weatherData?.temperature])
 
-    const handleDegrees = ( degrees: string ) => { 
-
-        const baseTemperature = Number((weatherData?.temperature)?.toFixed(2))
-        const tempMin = Number(weatherData?.temp_min)
-        const tempMax = Number(weatherData?.temp_max)
-
-        console.log('currenty temperature: ', baseTemperature)
-
-        switch( degrees ) {
-
-            case 'Celsius':
-
-                let newTemperature = Number((baseTemperature - 273.15).toFixed(2))
-                let newMin = Number((tempMin - 273.15).toFixed(2))
-                let newMax = Number((tempMax - 273.15).toFixed(2))
-
-                setCurrentyTemperature(newTemperature)
-                setCurrentyUnit('°C')
-                setMinMax({
-
-                    min_temperature: newMin,
-                    max_temperature: newMax
-
-                })
-                
-            break
-
-            case 'Farenheit':
-
-                newTemperature = Number((((baseTemperature - 273.15) * 9/5) + 32).toFixed(2))
-                newMin = Number(((( tempMin - 273.15) * 9/5) + 32).toFixed(2))
-                newMax = Number(((( tempMax - 273.15) * 9/5) + 32).toFixed(2))
-
-                setCurrentyTemperature(newTemperature)
-                setCurrentyUnit('°F')
-                setMinMax({
-
-                    min_temperature: newMin,
-                    max_temperature: newMax
-                    
-                })
-
-            break
-
-            default:
-
-                setCurrentyTemperature(baseTemperature)
-                setCurrentyUnit('°K')
-                setMinMax({
-
-                    min_temperature: Number((weatherData?.temp_min)?.toFixed(2)),
-                    max_temperature: Number((weatherData?.temp_max)?.toFixed(2))
-
-                })
-
-            break
-
-        }
-
-     }
+    
 
     return (
 
@@ -152,19 +93,12 @@ const WeatherCards: React.FC = () => {
                     
                     <View style={ styles.card_container }>
 
+                        
                         <View style={ styles.temperature_section }>
 
-                            <View style={ styles.degrees_container }>
-
-                                <TouchableOpacity onPress={ () => handleDegrees('Kelvin') }><Text>KELVIN</Text></TouchableOpacity>
-                                <TouchableOpacity onPress={ () => handleDegrees('Celsius') }><Text>CELSIUS</Text></TouchableOpacity>
-                                <TouchableOpacity onPress={ () => handleDegrees('Farenheit') }><Text>FARENHEIT</Text></TouchableOpacity>
-                                
-
-                            </View>
                             <View style={ styles.temp }>
 
-                                <Text style={ styles.city_title }>{ weatherData.name }</Text>
+                                {/* <Text style={ styles.city_title }>{ weatherData.name }</Text> */}
                                 <Text style={ styles.temperature}>{ currentyTemperature }</Text>
                                 <Text style={ styles.degrees }>{ currentyUnit }</Text>
 
@@ -173,8 +107,8 @@ const WeatherCards: React.FC = () => {
                         </View>
 
                         <View style={ styles.information_section }>
-
-                            <View style={ styles.mix_max }>
+                            <Text>Test Content</Text>
+                            {/* <View style={ styles.mix_max }>
 
                                 <Text style={ styles.min }>Min: { minMax?.min_temperature } { currentyUnit }</Text>
                                 <Text style={ styles.max }>Max: { minMax?.max_temperature } { currentyUnit }</Text>
@@ -185,7 +119,7 @@ const WeatherCards: React.FC = () => {
 
                                 <Text style={ styles.condition }>{  weatherData.main }</Text>
 
-                            </View>
+                            </View> */}
 
                         </View>
 
@@ -209,7 +143,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffb6d2c5',
         padding: 20,
         marginBottom: 20,
-        height: 170,
+        maxHeight: 210,
+        height: '100%',
         borderRadius: 12,
         width: '100%',
         shadowColor: '#171717',
@@ -221,6 +156,8 @@ const styles = StyleSheet.create({
 
     temperature_section: {
 
+        flex: 1,
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         width:'50%',
@@ -230,8 +167,10 @@ const styles = StyleSheet.create({
     temp: {
 
         flexDirection: 'row',
+        justifyContent: 'center',
         marginTop: -5,
-        width: 450,
+        maxWidth: 200,
+        backgroundColor: 'green'
 
     },
 
@@ -272,21 +211,8 @@ const styles = StyleSheet.create({
 
     temperature: {
 
-        fontSize: 100,
-
-    },
-
-    degrees_container: {
-
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderWidth:  0.5,
-        borderRadius: 4,
-        borderColor: '#000',
-        padding: 10,
-        width: 250,
-        height: 35
+        flex: 1,
+        fontSize: 40,
 
     },
 
