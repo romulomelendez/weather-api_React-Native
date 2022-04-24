@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
