@@ -28,11 +28,8 @@ const styles = StyleSheet.create({
         borderWidth:  0.5,
         borderRadius: 4,
         borderColor: '#000',
-        padding: 10,
-        maxWidth: 220,
-        width: '100%',
-        height: 35
-        
+        padding: 8,
+        marginBottom: 10,
 
     }
 

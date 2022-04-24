@@ -3,6 +3,8 @@ import { StyleSheet, View, Text } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
 
+import DegreesUnitToggle from '../DegreesUnitToggle'
+import Temperature from '../Temperature'
 import FavoriteWeathers from '../FavoriteWeathers'
 
 import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
@@ -62,19 +64,8 @@ const WeatherCards: React.FC = () => {
                     
                     <View style={ styles.card_container }>
 
-                        
-                        <View style={ styles.temperature_section }>
-
-                            <View style={ styles.temp }>
-
-                                {/* <Text style={ styles.city_title }>{ weatherData.name }</Text> */}
-                                <Text style={ styles.temperature}>{ currentyTemperature }</Text>
-                                <Text style={ styles.degrees }>{ currentyUnit }</Text>
-
-                            </View>
-
-                        </View>
-
+                        <DegreesUnitToggle />
+                        <Temperature />
                         <View style={ styles.information_section }>
                             <Text>Test Content</Text>
                             {/* <View style={ styles.mix_max }>
@@ -108,7 +99,7 @@ const styles = StyleSheet.create({
 
     card_container: {
 
-        flexDirection: 'row',
+        flexDirection: 'column',
         backgroundColor: '#ffb6d2c5',
         padding: 20,
         marginBottom: 20,
