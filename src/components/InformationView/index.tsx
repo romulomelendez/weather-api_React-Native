@@ -14,7 +14,6 @@ const InformationView: React.FC = () => {
 
         </View>
 
-
     )
 
 }
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
         height: 120,
         width: 300,
         borderRadius: 15,
-        padding: 5,
+        padding: 10,
         backgroundColor: '#00000049',
         justifyContent: 'center',
         alignItems: 'center'

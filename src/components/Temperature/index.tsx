@@ -9,15 +9,11 @@ const Temperature: React.FC = () => {
 
     return (
 
-        <View style={ styles.temperature_section }>
+        <View style={ styles.temp_container }>
 
-            <View style={ styles.temp }>
-
-                {/* <Text style={ styles.city_title }>{ weatherData.name }</Text> */}
-                <Text style={ styles.temperature }>{ currentyTemperature }</Text>
-                <Text style={ styles.degrees }>{ currentyUnit }</Text>
-
-            </View>
+            {/* <Text style={ styles.city_title }>{ weatherData.name }</Text> */}
+            <Text adjustsFontSizeToFit style={ styles.temperature }>{ currentyTemperature }</Text>
+            <Text>{ currentyUnit }</Text>
 
         </View>
 
@@ -27,37 +23,18 @@ const Temperature: React.FC = () => {
 
 const styles = StyleSheet.create({
 
-    temperature_section: {
-
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width:'50%',
-
-    },
-
-    temp: {
+    temp_container: {
 
         flexDirection: 'row',
+        width:'50%',
+        alignItems: 'center',
         justifyContent: 'center',
-        marginTop: -5,
-        maxWidth: 200,
-        backgroundColor: 'green'
 
     },
 
     temperature: {
 
-        flex: 1,
-        fontSize: 40,
-
-    },
-
-    degrees: {
-        
-        fontSize: 20,
-        marginTop: 30,
+        fontSize: 45,
 
     },
 

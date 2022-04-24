@@ -5,6 +5,7 @@ import { WeatherContext } from '../../context/WeatherContext'
 
 import DegreesUnitToggle from '../DegreesUnitToggle'
 import Temperature from '../Temperature'
+import InformationView from '../InformationView'
 import FavoriteWeathers from '../FavoriteWeathers'
 
 import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
@@ -62,10 +63,15 @@ const WeatherCards: React.FC = () => {
 
                 weatherData !== undefined ?
                     
-                    <View style={ styles.card_container }>
+                    <View style = { styles.card_container }>
 
                         <DegreesUnitToggle />
-                        <Temperature />
+                        <View style = { styles.weather_container }>
+
+                            <Temperature />
+                            <InformationView />
+
+                        </View>
 
                     </View>
 
@@ -95,6 +101,13 @@ const styles = StyleSheet.create({
         shadowOffset: { width: -2, height: 4 },
         shadowOpacity: 0.2,
         shadowRadius: 3,
+
+    },
+
+    weather_container: {
+
+        flexDirection: 'row',
+        maxWidth: '100%',
 
     },
 

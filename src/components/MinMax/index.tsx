@@ -10,8 +10,8 @@ const MinMax: React.FC = () => {
 
         <View style={ styles.mix_max }>
 
-            <Text style={ styles.min }>Min: { minMax?.min_temperature } { currentyUnit }</Text>
-            <Text style={ styles.max }>Max: { minMax?.max_temperature } { currentyUnit }</Text>
+            <Text>Min: { minMax?.min_temperature } { currentyUnit }</Text>
+            <Text>Max: { minMax?.max_temperature } { currentyUnit }</Text>
 
         </View>
 
@@ -23,15 +23,12 @@ const styles = StyleSheet.create({
 
     mix_max: {
 
-        width: 250,
-        flexDirection: 'row',
+        width: '100%',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
 
     },
-
-    min: { margin: 20 },
-    max: { margin: 20 },
 
 })
 
