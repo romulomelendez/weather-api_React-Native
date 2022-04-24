@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 
 import { WeatherContext } from '../../context/WeatherContext'
 
@@ -9,35 +9,7 @@ import { WEATHER_API_URL, WEATHER_API_URL_PART2, WEATHER_API_KEY } from '@env'
 
 const WeatherCards: React.FC = () => {
 
-    const [ weatherData, setWeatherData ] = useState<WeatherProps>()
-    const [ currentyTemperature, setCurrentyTemperature ] = useState<number>()
-    const [ currentyUnit, setCurrentyUnit ] = useState<string>('°K')
-    const [ minMax, setMinMax ] = useState<minMaxProps>()
-
-    const { city, controlVariable } = useContext(WeatherContext)
-
-    interface WeatherProps {
-
-        id: number,
-        name: string,
-        main: string,
-        description: string,
-        icon: string,
-		temperature: number,
-        feels_like: number,
-        temp_max: number,
-        temp_min:number,
-        pressure: number,
-        humidity: number
-
-    }
-
-    interface minMaxProps {
-
-        min_temperature?: number,
-        max_temperature?: number
-
-    }
+    const { city, controlVariable, weatherData, setWeatherData, currentyTemperature, setCurrentyTemperature, currentyUnit, minMax, setMinMax } = useContext(WeatherContext)
 
     useEffect( () => {
     
@@ -45,7 +17,6 @@ const WeatherCards: React.FC = () => {
         
         return () => {
 
-            //fetch(`https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=${key}`)
             fetch(WEATHER_API_URL + `${city}` + WEATHER_API_URL_PART2 + WEATHER_API_KEY)
                 .then( response => response.json() )
                 .then( data => setWeatherData({
@@ -80,8 +51,6 @@ const WeatherCards: React.FC = () => {
        })
 
     }, [weatherData?.temperature])
-
-    
 
     return (
 
