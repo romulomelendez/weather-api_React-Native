@@ -114,25 +114,7 @@ const styles = StyleSheet.create({
 
     },
 
-    temperature_section: {
-
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width:'50%',
-
-    },
-
-    temp: {
-
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: -5,
-        maxWidth: 200,
-        backgroundColor: 'green'
-
-    },
+    
 
     information_section: {
 
@@ -168,20 +150,6 @@ const styles = StyleSheet.create({
     },
 
     condition: { fontSize: 25 },
-
-    temperature: {
-
-        flex: 1,
-        fontSize: 40,
-
-    },
-
-    degrees: {
-        
-        fontSize: 20,
-        marginTop: 30,
-
-    },
 
     city_title: {
 
