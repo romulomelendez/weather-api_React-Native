@@ -1,5 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
+import DegreesButton from '../DegreesButtons'
+
 const DegreesUnitToggle: React.FC = () => {
 
     // const handleDegrees = ( degrees: string ) => { 
@@ -63,16 +65,15 @@ const DegreesUnitToggle: React.FC = () => {
 
     // }
 
-    const handleDegrees = ( degrees: string ) => console.log(degrees)
+    
 
     return (
 
         <View style={ styles.degrees_container }>
 
-            <TouchableOpacity onPress={ () => handleDegrees('Kelvin') }><Text style={ styles.text }>KELVIN</Text></TouchableOpacity>
-            <TouchableOpacity onPress={ () => handleDegrees('Celsius') }><Text style={ styles.text }>CELSIUS</Text></TouchableOpacity>
-            <TouchableOpacity onPress={ () => handleDegrees('Farenheit') }><Text style={ styles.text }>FARENHEIT</Text></TouchableOpacity>
-
+            <DegreesButton degrees='Celsius' />
+            <DegreesButton degrees='Farenheit' />
+            <DegreesButton degrees='Kelvin' />
 
         </View>
 
@@ -98,11 +99,7 @@ const styles = StyleSheet.create({
 
     },
 
-    text: {
-
-        fontSize: 15,
-
-    },
+    
 
 })
 
